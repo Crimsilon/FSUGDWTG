@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            shot.transform.localScale = new Vector3(.155f, .155f, .155f);
+            shot.transform.localScale = new Vector3(.255f, .255f, .255f);
         }
         if (Input.GetButton("Jump") && Time.time > nextFire)
         {

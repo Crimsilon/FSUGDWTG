@@ -631,7 +631,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 533987574}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2421,10 +2421,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7597947256df19447b7de98b33b23160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hazardBlue: {fileID: 1268733548364518, guid: bdb8056a8da270a4182307775198ce0d, type: 2}
-  hazardRed: {fileID: 1326168569317242, guid: bc91a78722b38894a89ea5ac327d95e4, type: 2}
+  hazardBlue: {fileID: 1100690979288338, guid: 21de1898e4731c148aca8d7654b28d93, type: 2}
+  hazardRed: {fileID: 1950495578272338, guid: bedb38fb88ff405418479a6cc532c286, type: 2}
   powerUp: {fileID: 0}
-  spawnValues: {x: 10, y: 0.5, z: 12}
+  spawnValues: {x: 9, y: 0.5, z: 12}
   hazardCount: 20
   score: 0
   enemyIncrease: 6
@@ -2432,7 +2432,7 @@ MonoBehaviour:
   redCount: 13
   blueCount: 13
   spawnWait: 2
-  startWait: 5
+  startWait: 2
   waveWait: 3
   scoreText: {fileID: 0}
   restartText: {fileID: 0}
