@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114719603254795050}
   m_Layer: 0
   m_Name: Shot Red
-  m_TagString: Untagged
+  m_TagString: ShotRed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

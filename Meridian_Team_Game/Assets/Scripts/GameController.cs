@@ -5,15 +5,15 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
-    public GameObject hazardBlue, hazardRed, powerUp;
+    public GameObject hazardBlue, hazardRed, powerUp,HealthBar;
     public Vector3 spawnValues;
-    public int hazardCount, score, enemyIncrease, whenIncrease,redCount,blueCount;
-    public float spawnWait, startWait, waveWait;
+    public int hazardCount, score, enemyIncrease, whenIncrease, redCount, blueCount, redCount2, blueCount2, waveCount;
+    public float spawnWait, startWait, waveWait,HealthTotal;
     public Text scoreText, restartText, gameOverText;
 
     private bool gameOver, restart;
     private float enemyType;
-    private int enemyTotal,waveUp,waveCount;
+    private int enemyTotal,waveUp;
 
     void Start() {
         waveUp = 1;
@@ -22,6 +22,8 @@ public class GameController : MonoBehaviour {
         StartCoroutine(SpawnWaves());
         score = 0;
         UpdateScore();
+        blueCount2 = blueCount;
+        redCount2 = redCount;
 
     
     }
@@ -33,6 +35,9 @@ public class GameController : MonoBehaviour {
             enemyTotal = enemyTotal + enemyIncrease;
             blueCount = blueCount + (enemyIncrease/2);
             redCount = redCount + (enemyIncrease/2);
+            spawnWait = (spawnWait / 1.5f);
+            HealthBar.transform.localScale = new Vector3(HealthTotal, 1, 1);
+            
         }
 
 		
@@ -56,16 +61,20 @@ public class GameController : MonoBehaviour {
                 {
                     enemyType = Random.Range(-2, 2);
                 }
-                if (redCount != 0 && blueCount != 0)
+                if (redCount2 != 0 && blueCount2 != 0)
                 {
+                    
                     if (enemyType > 0)
                     {
                         Instantiate(hazardRed, spawnPostion, spawnRotation);
+                        redCount2 = redCount2 - 1;
                     }
-                    else { Instantiate(hazardBlue, spawnPostion, spawnRotation); }
+                    else { Instantiate(hazardBlue, spawnPostion, spawnRotation);
+                    blueCount2 = blueCount2 - 1;
+                    }
                 }
                 else {
-                    if (blueCount == 0)
+                    if (blueCount2 == 0)
                     {
                         Instantiate(hazardRed, spawnPostion, spawnRotation);
                     }
@@ -75,6 +84,8 @@ public class GameController : MonoBehaviour {
                 yield return new WaitForSeconds(spawnWait);
             }
             yield return new WaitForSeconds(waveWait);
+            blueCount2 = blueCount;
+            redCount2 = redCount;
             waveCount++;
 
             if (gameOver)
@@ -98,5 +109,10 @@ public class GameController : MonoBehaviour {
     {
         //gameOverText.text = "Game Over";
         gameOver = true;
+    }
+    public void LoseHealth() {
+        HealthTotal = HealthTotal - 1;
+
+    
     }
 }

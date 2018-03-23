@@ -78,11 +78,11 @@ public class PlayerController : MonoBehaviour
         rb.velocity = movement * speed;
         if (Input.GetKey(KeyCode.Q))
         {
-            transform.Rotate(Vector3.down * 50 * Time.deltaTime);
+            transform.Rotate(Vector3.down * 75 * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.E))
         {
-            transform.Rotate(Vector3.up * 50 * Time.deltaTime);
+            transform.Rotate(Vector3.up * 75 * Time.deltaTime);
         }
         rotation = Quaternion.Euler(transform.rotation.x, spin, transform.rotation.z);
 

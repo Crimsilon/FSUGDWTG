@@ -493,6 +493,7 @@ GameObject:
   - component: {fileID: 54321505482337892}
   - component: {fileID: 114910550544120280}
   - component: {fileID: 65419809746427188}
+  - component: {fileID: 114352643257438712}
   m_Layer: 0
   m_Name: MobRed
   m_TagString: Untagged
@@ -2168,7 +2169,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1950495578272338}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.04974461, y: 0.06418866, z: 0.02146302}
@@ -2190,6 +2191,21 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114352643257438712
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1950495578272338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b560ed02e1617f4b8e30081b8ff50f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 0}
+  pickUp: {fileID: 1326168569317242, guid: bc91a78722b38894a89ea5ac327d95e4, type: 2}
+  scoreValue: 1
+  dropRate: -8
 --- !u!114 &114910550544120280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2204,4 +2220,4 @@ MonoBehaviour:
   boundry:
     yMin: 0
     yMax: 0
-  speed: -5
+  speed: -3

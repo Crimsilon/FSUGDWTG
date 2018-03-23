@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 54842314351935770}
   - component: {fileID: 114074458739789104}
   - component: {fileID: 65742141193273958}
+  - component: {fileID: 114614414980639374}
   m_Layer: 0
   m_Name: MobBlue
   m_TagString: Untagged
@@ -2168,7 +2169,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1100690979288338}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.04974461, y: 0.06418866, z: 0.02146302}
@@ -2204,4 +2205,19 @@ MonoBehaviour:
   boundry:
     yMin: 0
     yMax: 0
-  speed: -5
+  speed: -3
+--- !u!114 &114614414980639374
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1100690979288338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0591b640408dc4b807a493b5fcb910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionBlue: {fileID: 0}
+  pickUpBlue: {fileID: 1268733548364518, guid: bdb8056a8da270a4182307775198ce0d, type: 2}
+  scoreValueBlue: 1
+  dropRateBlue: -8
