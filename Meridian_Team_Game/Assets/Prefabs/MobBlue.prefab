@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 95864914975180124}
   - component: {fileID: 54842314351935770}
   - component: {fileID: 114074458739789104}
+  - component: {fileID: 65742141193273958}
   m_Layer: 0
   m_Name: MobBlue
   m_TagString: Untagged
@@ -2160,6 +2161,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65742141193273958
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1100690979288338}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04974461, y: 0.06418866, z: 0.02146302}
+  m_Center: {x: 0, y: 0.001916128, z: 0.005441864}
 --- !u!95 &95864914975180124
 Animator:
   serializedVersion: 3

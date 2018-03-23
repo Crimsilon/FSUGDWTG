@@ -492,6 +492,7 @@ GameObject:
   - component: {fileID: 95225654743531658}
   - component: {fileID: 54321505482337892}
   - component: {fileID: 114910550544120280}
+  - component: {fileID: 65419809746427188}
   m_Layer: 0
   m_Name: MobRed
   m_TagString: Untagged
@@ -2160,6 +2161,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65419809746427188
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1950495578272338}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04974461, y: 0.06418866, z: 0.02146302}
+  m_Center: {x: 0, y: 0.001916128, z: 0.005441864}
 --- !u!95 &95225654743531658
 Animator:
   serializedVersion: 3
