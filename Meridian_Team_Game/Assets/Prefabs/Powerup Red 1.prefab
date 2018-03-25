@@ -24,9 +24,10 @@ GameObject:
   - component: {fileID: 95158658274391944}
   - component: {fileID: 54187515338647166}
   - component: {fileID: 114337872572876276}
+  - component: {fileID: 135905694250179926}
   m_Layer: 0
   m_Name: Powerup Red 1
-  m_TagString: Untagged
+  m_TagString: PowerRed1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,4 +132,16 @@ MonoBehaviour:
   boundry:
     yMin: 0
     yMax: 0
-  speed: -3
+  speed: -1
+--- !u!135 &135905694250179926
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1326168569317242}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.50310665
+  m_Center: {x: 0.004548095, y: 0.6137245, z: 0.0033099055}

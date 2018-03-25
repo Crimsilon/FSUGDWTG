@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemyControllerRed : MonoBehaviour {
 
-    public GameObject explosion, pickUp;
+    public GameObject explosion, pickUpRed,pickUpRed2;
     public int scoreValue, dropRate;
 
     private GameController gameController;
     private bool scoreable;
-    private float dropChance;
+    private float dropChance, pickupTypeRed;
 
     void Start()
     {
@@ -37,13 +37,21 @@ public class EnemyControllerRed : MonoBehaviour {
            
                 if (scoreable)
                 {
-                        //gameController.AddScore(scoreValue);
+                        gameController.AddScore(scoreValue);
                         scoreable = false;
                         dropChance = Random.Range(dropRate, 2);
                         if (dropChance >= 0)
                         {
-                            Instantiate(pickUp, transform.position, new Quaternion(0, 0, 0, 0));
-
+                            pickupTypeRed = 0;
+                            while (pickupTypeRed == 0)
+                            {
+                                pickupTypeRed = Random.Range(-1, 1);
+                            }
+                            if (pickupTypeRed > 0)
+                            {
+                                Instantiate(pickUpRed, transform.position, new Quaternion(0, 0, 0, 0));
+                            }
+                            else { Instantiate(pickUpRed2, transform.position, new Quaternion(0, 0, 0, 0)); }
                         }
 
                     }
@@ -51,6 +59,11 @@ public class EnemyControllerRed : MonoBehaviour {
                 Destroy(other.gameObject);
                 Destroy(gameObject);
             }
+        if (other.tag == "PlayerWall") {
+            Destroy(gameObject);
+            gameController.LoseHealth();
+        
+        }
         }
 
 

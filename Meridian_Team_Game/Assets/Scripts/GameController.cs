@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
-    public GameObject hazardBlue, hazardRed, powerUp,HealthBar;
+    public GameObject hazardBlue, hazardRed, powerUp, HealthBar;
     public Vector3 spawnValues;
     public int hazardCount, score, enemyIncrease, whenIncrease, redCount, blueCount, redCount2, blueCount2, waveCount;
     public float spawnWait, startWait, waveWait,HealthTotal;
@@ -24,6 +24,10 @@ public class GameController : MonoBehaviour {
         UpdateScore();
         blueCount2 = blueCount;
         redCount2 = redCount;
+        gameOver = false;
+        restart = false;
+        restartText.text = "";
+        gameOverText.text = "";
 
     
     }
@@ -36,8 +40,19 @@ public class GameController : MonoBehaviour {
             blueCount = blueCount + (enemyIncrease/2);
             redCount = redCount + (enemyIncrease/2);
             spawnWait = (spawnWait / 1.5f);
-            HealthBar.transform.localScale = new Vector3(HealthTotal, 1, 1);
             
+            
+        }
+        if (HealthTotal <= 0)
+                GameOver();
+        if(HealthTotal >=0)
+            HealthBar.transform.localScale = new Vector3(HealthTotal/2, 1, 1);
+        if (restart)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
         }
 
 		
@@ -47,10 +62,10 @@ public class GameController : MonoBehaviour {
         yield return new WaitForSeconds(startWait);
         while (true)
         {
-            //gameOverText.text = "Wave:" + waveCount;
-            //restartText.text = "Wave:" + waveCount;
+            gameOverText.text = "Wave:" + waveCount;
+            restartText.text = "Wave:" + waveCount;
             yield return new WaitForSeconds(waveWait);
-            //gameOverText.text = "";
+            gameOverText.text = "";
 
             for (int i = 0; i < enemyTotal; i++)
             {
@@ -90,7 +105,7 @@ public class GameController : MonoBehaviour {
 
             if (gameOver)
             {
-                restartText.text = "Press 'R' to Restart";
+                restartText.text = "Press 'fire' to Restart";
                 restart = true;
                 break;
             }
@@ -103,11 +118,11 @@ public class GameController : MonoBehaviour {
     }
     void UpdateScore()
     {
-        //scoreText.text = "Score:" + score;
+        scoreText.text = "Score:" + score;
     }
     public void GameOver()
     {
-        //gameOverText.text = "Game Over";
+        gameOverText.text = "Game Over";
         gameOver = true;
     }
     public void LoseHealth() {

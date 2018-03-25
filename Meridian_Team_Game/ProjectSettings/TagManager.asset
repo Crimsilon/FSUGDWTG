@@ -6,6 +6,13 @@ TagManager:
   tags:
   - ShotBlue
   - ShotRed
+  - PlayerWall
+  - PlayerRed
+  - PlayerBlue
+  - PowerRed1
+  - PowerRed2
+  - PowerBlue1
+  - PowerBlue2
   layers:
   - Default
   - TransparentFX

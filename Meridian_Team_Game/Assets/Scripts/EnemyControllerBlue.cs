@@ -5,12 +5,12 @@ using UnityEngine;
 public class EnemyControllerBlue : MonoBehaviour
 {
 
-    public GameObject explosionBlue, pickUpBlue;
+    public GameObject explosionBlue, pickUpBlue, pickUpBlue2;
     public int scoreValueBlue, dropRateBlue;
 
     private GameController gameControllerBlue;
     private bool scoreableBlue;
-    private float dropChanceBlue;
+    private float dropChanceBlue,pickupTypeBlue;
 
     void Start()
     {
@@ -38,19 +38,33 @@ public class EnemyControllerBlue : MonoBehaviour
 
             if (scoreableBlue)
             {
-                //gameController.AddScore(scoreValue);
+                gameControllerBlue.AddScore(scoreValueBlue);
                 scoreableBlue = false;
                 dropChanceBlue = Random.Range(dropRateBlue, 2);
                 if (dropChanceBlue >= 0)
                 {
-                    Instantiate(pickUpBlue, transform.position, new Quaternion(0, 0, 0, 0));
-
+                    pickupTypeBlue = 0;
+                    while (pickupTypeBlue == 0)
+                    {
+                        pickupTypeBlue = Random.Range(-1, 1);
+                    }
+                    if (pickupTypeBlue > 0)
+                    {
+                        Instantiate(pickUpBlue, transform.position, new Quaternion(0, 0, 0, 0));
+                    }
+                    else { Instantiate(pickUpBlue2, transform.position, new Quaternion(0, 0, 0, 0)); }
                 }
 
             }
 
             Destroy(other.gameObject);
             Destroy(gameObject);
+        }
+        if (other.tag == "PlayerWall")
+        {
+            Destroy(gameObject);
+            gameControllerBlue.LoseHealth();
+
         }
     }
 

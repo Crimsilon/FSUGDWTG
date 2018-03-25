@@ -2203,9 +2203,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 0}
-  pickUp: {fileID: 1326168569317242, guid: bc91a78722b38894a89ea5ac327d95e4, type: 2}
+  pickUpRed: {fileID: 1326168569317242, guid: bc91a78722b38894a89ea5ac327d95e4, type: 2}
+  pickUpRed2: {fileID: 1111855198946666, guid: 9dfb2f2145685d94fa45194c1eef50a5, type: 2}
   scoreValue: 1
-  dropRate: -8
+  dropRate: -3
 --- !u!114 &114910550544120280
 MonoBehaviour:
   m_ObjectHideFlags: 1

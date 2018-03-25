@@ -24,9 +24,10 @@ GameObject:
   - component: {fileID: 95836501723123644}
   - component: {fileID: 54675021879511888}
   - component: {fileID: 114191996811220720}
+  - component: {fileID: 135177472353653352}
   m_Layer: 0
   m_Name: Powerup Blue 1
-  m_TagString: Untagged
+  m_TagString: PowerBlue1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,4 +132,16 @@ MonoBehaviour:
   boundry:
     yMin: 0
     yMax: 0
-  speed: -3
+  speed: -1
+--- !u!135 &135177472353653352
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1268733548364518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.50310665
+  m_Center: {x: 0.004548095, y: 0.6137245, z: 0.0033099055}

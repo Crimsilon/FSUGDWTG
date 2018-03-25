@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Boundry
+public class BoundryBlue
 {
     public float xMin, xMax, zMin, zMax;
 }
 
-public class PlayerController : MonoBehaviour
+public class PlayerControllerBlue : MonoBehaviour
 {
     public float speed, fireRate, powerUpTimer;
-    public Boundry boundry;
+    public BoundryBlue boundry;
     public GameObject shot;
     public Transform ShotsSpawn;
     public bool TriShot, GiantShot;
 
-    private float nextFire, fireRate2, powerUpDespawn, powerUpDespawn2,spin;
+    private float nextFire, fireRate2, powerUpDespawn, powerUpDespawn2, spin;
     private Rigidbody rb;
     private AudioSource audiosource;
     private Vector3 ShotsSpawn2, ShotsSpawn3;
     private Quaternion rotation;
-   
+
 
 
     void Start()
@@ -67,12 +67,12 @@ public class PlayerController : MonoBehaviour
 
 
         }
-        
+
     }
     void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
-        
+
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);
         rb.velocity = movement * speed;
@@ -89,16 +89,17 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, Time.deltaTime);
 
         rb.position = new Vector3(Mathf.Clamp(rb.position.x, boundry.xMin, boundry.xMax), 0.0f, Mathf.Clamp(rb.position.z, boundry.zMin, boundry.zMax));
-        
+
 
 
     }
-    public void PickupRed1() {
-        TriShot = true;			
-		powerUpDespawn = Time.time;
-    
+    public void PickupBlue1()
+    {
+        TriShot = true;
+        powerUpDespawn = Time.time;
+
     }
-    public void PickupRed2()
+    public void PickupBlue2()
     {
         GiantShot = true;
         powerUpDespawn2 = Time.time;
