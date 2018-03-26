@@ -71,20 +71,28 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        
+        float moveHorizontal = 0;
+        if(Input.GetKey(KeyCode.A)){
+        moveHorizontal = -1;
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            moveHorizontal = 1;
+
+        }
+        else { moveHorizontal = 0; }
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);
         rb.velocity = movement * speed;
         if (Input.GetKey(KeyCode.Q))
         {
-            transform.Rotate(Vector3.down * 75 * Time.deltaTime);
+            transform.Rotate(Vector3.down * 85 * Time.deltaTime);
             rotation = Quaternion.Euler(transform.rotation.x, spin, transform.rotation.z);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.E))
         {
-            transform.Rotate(Vector3.up * 75 * Time.deltaTime);
+            transform.Rotate(Vector3.up * 85 * Time.deltaTime);
             rotation = Quaternion.Euler(transform.rotation.x, spin, transform.rotation.z);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, Time.deltaTime);
         }

@@ -45,7 +45,7 @@ public class EnemyControllerRed : MonoBehaviour {
                             pickupTypeRed = 0;
                             while (pickupTypeRed == 0)
                             {
-                                pickupTypeRed = Random.Range(-1, 1);
+                                pickupTypeRed = Random.Range(-2, 3);
                             }
                             if (pickupTypeRed > 0)
                             {

@@ -46,7 +46,7 @@ public class EnemyControllerBlue : MonoBehaviour
                     pickupTypeBlue = 0;
                     while (pickupTypeBlue == 0)
                     {
-                        pickupTypeBlue = Random.Range(-1, 1);
+                        pickupTypeBlue = Random.Range(-2, 3);
                     }
                     if (pickupTypeBlue > 0)
                     {

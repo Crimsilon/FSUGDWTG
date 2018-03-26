@@ -2038,7 +2038,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1533944467
 MeshFilter:
@@ -2515,16 +2515,12 @@ MonoBehaviour:
   powerUp: {fileID: 0}
   HealthBar: {fileID: 978351343}
   spawnValues: {x: 9, y: 0.5, z: 12}
-  hazardCount: 20
+  hazardCount: 10
   score: 0
-  enemyIncrease: 6
+  enemyIncrease: 3
   whenIncrease: 3
-  redCount: 13
-  blueCount: 13
-  redCount2: 0
-  blueCount2: 0
   waveCount: 0
-  spawnWait: 2
+  spawnWait: 4
   startWait: 2
   waveWait: 3
   HealthTotal: 30

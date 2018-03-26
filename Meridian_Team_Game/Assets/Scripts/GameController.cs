@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour {
     public GameObject hazardBlue, hazardRed, powerUp, HealthBar;
     public Vector3 spawnValues;
-    public int hazardCount, score, enemyIncrease, whenIncrease, redCount, blueCount, redCount2, blueCount2, waveCount;
+    public int hazardCount, score, enemyIncrease, whenIncrease, waveCount;
     public float spawnWait, startWait, waveWait,HealthTotal;
     public Text scoreText, restartText, gameOverText;
 
@@ -22,8 +22,6 @@ public class GameController : MonoBehaviour {
         StartCoroutine(SpawnWaves());
         score = 0;
         UpdateScore();
-        blueCount2 = blueCount;
-        redCount2 = redCount;
         gameOver = false;
         restart = false;
         restartText.text = "";
@@ -37,8 +35,7 @@ public class GameController : MonoBehaviour {
         if(waveCount>=waveUp+whenIncrease){
             waveUp = waveCount;
             enemyTotal = enemyTotal + enemyIncrease;
-            blueCount = blueCount + (enemyIncrease/2);
-            redCount = redCount + (enemyIncrease/2);
+            
             spawnWait = (spawnWait / 1.5f);
             
             
@@ -69,38 +66,27 @@ public class GameController : MonoBehaviour {
 
             for (int i = 0; i < enemyTotal; i++)
             {
-                Vector3 spawnPostion = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+                Vector3 spawnPostion1 = new Vector3(Random.Range(-spawnValues.x, -1), spawnValues.y, spawnValues.z);
+                Vector3 spawnPostion2 = new Vector3(Random.Range(1, spawnValues.x), spawnValues.y, spawnValues.z);
                 Quaternion spawnRotation = Quaternion.identity;
                 enemyType = 0;
                 while (enemyType == 0)
                 {
-                    enemyType = Random.Range(-2, 2);
+                    enemyType = Random.Range(-2, 12);
                 }
-                if (redCount2 != 0 && blueCount2 != 0)
-                {
-                    
-                    if (enemyType > 0)
-                    {
-                        Instantiate(hazardRed, spawnPostion, spawnRotation);
-                        redCount2 = redCount2 - 1;
-                    }
-                    else { Instantiate(hazardBlue, spawnPostion, spawnRotation);
-                    blueCount2 = blueCount2 - 1;
-                    }
+                if (enemyType > 0){
+                    Instantiate(hazardRed, spawnPostion1, spawnRotation);
+                    Instantiate(hazardBlue, spawnPostion2, spawnRotation);
                 }
-                else {
-                    if (blueCount2 == 0)
-                    {
-                        Instantiate(hazardRed, spawnPostion, spawnRotation);
-                    }
-                    else { Instantiate(hazardBlue, spawnPostion, spawnRotation); }
+                else { 
+                    Instantiate(hazardBlue, spawnPostion1, spawnRotation);
+                    Instantiate(hazardRed, spawnPostion2, spawnRotation);
+                }
                 
-                }
                 yield return new WaitForSeconds(spawnWait);
             }
             yield return new WaitForSeconds(waveWait);
-            blueCount2 = blueCount;
-            redCount2 = redCount;
+            
             waveCount++;
 
             if (gameOver)
