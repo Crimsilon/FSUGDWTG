@@ -5,15 +5,17 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
-    public GameObject hazardBlue, hazardRed, powerUp, HealthBar;
+    public GameObject hazardBlue, hazardRed, HealthBar;
     public Vector3 spawnValues;
     public int hazardCount, score, enemyIncrease, whenIncrease, waveCount;
     public float spawnWait, startWait, waveWait,HealthTotal;
     public Text scoreText, restartText, gameOverText;
 
-    private bool gameOver, restart;
+    private bool gameOver, restart, ChoiceRed,ChoiceBlue,Pause;
     private float enemyType;
     private int enemyTotal,waveUp;
+    private PlayerController PlayerControllerRed;
+    private PlayerControllerBlue PlayerControllerblue;
 
     void Start() {
         waveUp = 1;
@@ -26,6 +28,12 @@ public class GameController : MonoBehaviour {
         restart = false;
         restartText.text = "";
         gameOverText.text = "";
+        ChoiceRed = true;
+        ChoiceBlue = true;
+        GameObject playerObjectRed = GameObject.FindWithTag("PlayerRed");
+        PlayerControllerRed = playerObjectRed.GetComponent<PlayerController>();
+        GameObject playerObjectBlue = GameObject.FindWithTag("PlayerBlue");
+        PlayerControllerblue = playerObjectBlue.GetComponent<PlayerControllerBlue>();
 
     
     }
@@ -63,31 +71,51 @@ public class GameController : MonoBehaviour {
             restartText.text = "Wave:" + waveCount;
             yield return new WaitForSeconds(waveWait);
             gameOverText.text = "";
+            
+            while (Pause) {
+                yield return new WaitForSeconds(.02f);
+                if (ChoiceRed)
+                {
+                    if (ChoiceBlue)
+                    {
+                        Pause = false;
+                    }
+                }
+            
+            }
 
+            
             for (int i = 0; i < enemyTotal; i++)
             {
-                Vector3 spawnPostion1 = new Vector3(Random.Range(-spawnValues.x, -1), spawnValues.y, spawnValues.z);
-                Vector3 spawnPostion2 = new Vector3(Random.Range(1, spawnValues.x), spawnValues.y, spawnValues.z);
+                Vector3 spawnPostion1 = new Vector3(Random.Range(-spawnValues.x, -1.5f), spawnValues.y, spawnValues.z);
+                Vector3 spawnPostion2 = new Vector3(Random.Range(1.5f, spawnValues.x), spawnValues.y, spawnValues.z);
                 Quaternion spawnRotation = Quaternion.identity;
                 enemyType = 0;
-                while (enemyType == 0)
-                {
-                    enemyType = Random.Range(-2, 12);
-                }
-                if (enemyType > 0){
-                    Instantiate(hazardRed, spawnPostion1, spawnRotation);
-                    Instantiate(hazardBlue, spawnPostion2, spawnRotation);
-                }
-                else { 
-                    Instantiate(hazardBlue, spawnPostion1, spawnRotation);
-                    Instantiate(hazardRed, spawnPostion2, spawnRotation);
-                }
+               
+                    while (enemyType == 0)
+                    {
+                        enemyType = Random.Range(-2, 8);
+                    }
+                    if (enemyType > 0)
+                    {
+                        Instantiate(hazardRed, spawnPostion1, spawnRotation);
+                        Instantiate(hazardBlue, spawnPostion2, spawnRotation);
+                        
+                    }
+                    else
+                    {
+                        Instantiate(hazardBlue, spawnPostion1, spawnRotation);
+                        Instantiate(hazardRed, spawnPostion2, spawnRotation);
+                    }
+                
                 
                 yield return new WaitForSeconds(spawnWait);
             }
             yield return new WaitForSeconds(waveWait);
             
-            waveCount++;
+                waveCount++;
+            
+            
 
             if (gameOver)
             {
@@ -95,7 +123,15 @@ public class GameController : MonoBehaviour {
                 restart = true;
                 break;
             }
+            
+            if(ChoiceBlue && ChoiceRed){
+                PlayerControllerRed.EnableUpgradeRed();
+                PlayerControllerblue.EnableUpgradeBlue();
+                FalseChoice();
+            }
+            
         }
+       
     }
     public void AddScore(int newScoreValue)
     {
@@ -116,4 +152,12 @@ public class GameController : MonoBehaviour {
 
     
     }
+    public void GainHealth(){
+        HealthTotal = HealthTotal + 5;
+
+    
+    }
+    public void PlayerRedChoice() { ChoiceRed = true; }
+    public void PlayerBlueChoice() { ChoiceBlue = true; }
+    void FalseChoice() { ChoiceRed = false; ChoiceBlue = false; Pause = true; }
 }

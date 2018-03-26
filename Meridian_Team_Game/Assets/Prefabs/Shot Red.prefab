@@ -24,8 +24,8 @@ GameObject:
   - component: {fileID: 23343385304520222}
   - component: {fileID: 114468245910098146}
   - component: {fileID: 54009634261669968}
-  - component: {fileID: 114719603254795050}
   - component: {fileID: 114795239591281558}
+  - component: {fileID: 114334846858876604}
   m_Layer: 0
   m_Name: Shot Red
   m_TagString: ShotRed
@@ -102,6 +102,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114334846858876604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1062331640772992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fa1005c3a4de0c408f67bd87cc892ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114468245910098146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,18 +128,6 @@ MonoBehaviour:
     yMin: 0
     yMax: 0
   speed: 10
---- !u!114 &114719603254795050
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1062331640772992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0d9cfc9e77e6d842b82a6a67c924544, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bounceCount: 4
 --- !u!114 &114795239591281558
 MonoBehaviour:
   m_ObjectHideFlags: 1

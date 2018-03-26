@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShotController : MonoBehaviour {
+public class ShotControllerRed : MonoBehaviour {
 
+	
     private int bounceCount;
 
-    private PlayerControllerBlue PlayerControllerblue;
+    private PlayerController PlayerControllerRed;
 
     void Start() {
-        GameObject playerObjectBlue = GameObject.FindWithTag("PlayerBlue");
-        PlayerControllerblue = playerObjectBlue.GetComponent<PlayerControllerBlue>();
-        bounceCount = PlayerControllerblue.Bounce;
+        GameObject playerObjectRed = GameObject.FindWithTag("PlayerRed");
+        PlayerControllerRed = playerObjectRed.GetComponent<PlayerController>();
+        bounceCount = PlayerControllerRed.BounceRed;
     
     }
     void OnCollisionEnter(Collision other) {

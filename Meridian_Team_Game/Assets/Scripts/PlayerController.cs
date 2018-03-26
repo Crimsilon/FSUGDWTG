@@ -15,19 +15,29 @@ public class PlayerController : MonoBehaviour
     public GameObject shot;
     public Transform ShotsSpawn;
     public bool TriShot, GiantShot;
+    public int BounceRed;
 
     private float nextFire, fireRate2, powerUpDespawn, powerUpDespawn2,spin;
     private Rigidbody rb;
     private AudioSource audiosource;
     private Vector3 ShotsSpawn2, ShotsSpawn3;
     private Quaternion rotation;
+    private GameController gameControllerRed;
+    private bool CanUpgradeRed;
    
 
 
     void Start()
     {
+        CanUpgradeRed = false;
         rb = GetComponent<Rigidbody>();
         fireRate2 = fireRate;
+        BounceRed = 5;
+        GameObject gameControllerObject = GameObject.FindWithTag("GameController");
+        if (gameControllerObject != null)
+        {
+            gameControllerRed = gameControllerObject.GetComponent<GameController>();
+        }
 
     }
 
@@ -66,6 +76,26 @@ public class PlayerController : MonoBehaviour
             }
 
 
+        }
+        if (CanUpgradeRed) {
+            if (Input.GetKey(KeyCode.C)) {
+                fireRate2 = fireRate2 - .05f;
+                CanUpgradeRed = false;
+                gameControllerRed.PlayerRedChoice();
+            }
+            if (Input.GetKey(KeyCode.V)) {
+                gameControllerRed.GainHealth();
+                CanUpgradeRed = false;
+                gameControllerRed.PlayerRedChoice();
+            }
+            if (Input.GetKey(KeyCode.B))
+            {
+                BounceRed++;
+                CanUpgradeRed = false;
+                gameControllerRed.PlayerRedChoice();
+            }
+           
+        
         }
         
     }
@@ -113,6 +143,10 @@ public class PlayerController : MonoBehaviour
         GiantShot = true;
         powerUpDespawn2 = Time.time;
 
+    }
+    public void EnableUpgradeRed() {
+        CanUpgradeRed = true;
+    
     }
 }
 

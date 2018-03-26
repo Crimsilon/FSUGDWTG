@@ -1089,6 +1089,7 @@ MonoBehaviour:
   ShotsSpawn: {fileID: 1949684419}
   TriShot: 0
   GiantShot: 0
+  Bounce: 0
 --- !u!54 &737933352
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2356,6 +2357,7 @@ MonoBehaviour:
   ShotsSpawn: {fileID: 221104724}
   TriShot: 0
   GiantShot: 0
+  BounceRed: 0
 --- !u!54 &1903082056
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2512,10 +2514,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hazardBlue: {fileID: 1100690979288338, guid: 21de1898e4731c148aca8d7654b28d93, type: 2}
   hazardRed: {fileID: 1950495578272338, guid: bedb38fb88ff405418479a6cc532c286, type: 2}
-  powerUp: {fileID: 0}
   HealthBar: {fileID: 978351343}
   spawnValues: {x: 9, y: 0.5, z: 12}
-  hazardCount: 10
+  hazardCount: 1
   score: 0
   enemyIncrease: 3
   whenIncrease: 3

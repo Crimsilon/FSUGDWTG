@@ -15,12 +15,17 @@ public class PlayerControllerBlue : MonoBehaviour
     public GameObject shot;
     public Transform ShotsSpawn;
     public bool TriShot, GiantShot;
+    public int Bounce;
 
     private float nextFire, fireRate2, powerUpDespawn, powerUpDespawn2, spin;
     private Rigidbody rb;
     private AudioSource audiosource;
     private Vector3 ShotsSpawn2, ShotsSpawn3;
     private Quaternion rotation;
+    private GameController gameControllerBlue;
+    private ShotController ShotControllerBlue;
+    private bool CanUpgradeBlue;
+    
 
 
 
@@ -28,7 +33,13 @@ public class PlayerControllerBlue : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         fireRate2 = fireRate;
-
+        Bounce = 5;
+        GameObject gameControllerObject = GameObject.FindWithTag("GameController");
+        if (gameControllerObject != null)
+        {
+            gameControllerBlue = gameControllerObject.GetComponent<GameController>();
+        }
+       
     }
 
 
@@ -65,6 +76,28 @@ public class PlayerControllerBlue : MonoBehaviour
                 Instantiate(shot, ShotsSpawn3, ShotsSpawn.rotation);
             }
 
+
+        }
+        if (CanUpgradeBlue)
+        {
+            if (Input.GetKey(KeyCode.F))
+            {
+                fireRate2 = fireRate2 - .05f;
+                CanUpgradeBlue = false;
+                gameControllerBlue.PlayerBlueChoice();
+            }
+            if (Input.GetKey(KeyCode.G))
+            {
+                gameControllerBlue.GainHealth();
+                CanUpgradeBlue = false;
+                gameControllerBlue.PlayerBlueChoice();
+            }
+            if (Input.GetKey(KeyCode.H))
+            {
+                Bounce++;
+                CanUpgradeBlue = false;
+                gameControllerBlue.PlayerBlueChoice();
+            }
 
         }
 
@@ -116,6 +149,12 @@ public class PlayerControllerBlue : MonoBehaviour
         powerUpDespawn2 = Time.time;
 
     }
+    public void EnableUpgradeBlue()
+    {
+        CanUpgradeBlue = true;
+
+    }
+ 
 }
 
 
