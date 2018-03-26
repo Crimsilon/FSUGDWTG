@@ -79,14 +79,16 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Q))
         {
             transform.Rotate(Vector3.down * 75 * Time.deltaTime);
+            rotation = Quaternion.Euler(transform.rotation.x, spin, transform.rotation.z);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.E))
         {
             transform.Rotate(Vector3.up * 75 * Time.deltaTime);
+            rotation = Quaternion.Euler(transform.rotation.x, spin, transform.rotation.z);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, Time.deltaTime);
         }
-        rotation = Quaternion.Euler(transform.rotation.x, spin, transform.rotation.z);
-
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, Time.deltaTime);
+        
 
         rb.position = new Vector3(Mathf.Clamp(rb.position.x, boundry.xMin, boundry.xMax), 0.0f, Mathf.Clamp(rb.position.z, boundry.zMin, boundry.zMax));
         

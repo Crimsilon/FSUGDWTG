@@ -1077,7 +1077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75505726268de74a934cac276032459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 3
   fireRate: 1
   powerUpTimer: 5
   boundry:
@@ -2344,7 +2344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c40026587ee1fa84486c0790bfb09840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 3
   fireRate: 1
   powerUpTimer: 5
   boundry:
