@@ -13,6 +13,9 @@ TagManager:
   - PowerRed2
   - PowerBlue1
   - PowerBlue2
+  - Upgrade
+  - Upgrade2
+  - Upgrade3
   layers:
   - Default
   - TransparentFX

@@ -5,11 +5,11 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
-    public GameObject hazardBlue, hazardRed, HealthBar;
+    public GameObject hazardBlue, hazardRed, HealthBar,HealthUpgrade,BounceUpgrade,FireUpgrade;
     public Vector3 spawnValues;
     public int hazardCount, score, enemyIncrease, whenIncrease, waveCount;
     public float spawnWait, startWait, waveWait,HealthTotal;
-    public Text scoreText, restartText, gameOverText;
+    public Text scoreText, restartText, gameOverText,UpgradeHealth,UpgradeBounce,UpgradeFire,UpgradeHealth2,UpgradeBounce2,UpgradeFire2;
 
     private bool gameOver, restart, ChoiceRed,ChoiceBlue,Pause;
     private float enemyType;
@@ -28,6 +28,12 @@ public class GameController : MonoBehaviour {
         restart = false;
         restartText.text = "";
         gameOverText.text = "";
+        UpgradeFire.text = "";
+        UpgradeHealth.text = "";
+        UpgradeBounce.text = "";
+        UpgradeFire2.text = "";
+        UpgradeHealth2.text = "";
+        UpgradeBounce2.text = "";
         ChoiceRed = true;
         ChoiceBlue = true;
         GameObject playerObjectRed = GameObject.FindWithTag("PlayerRed");
@@ -54,7 +60,7 @@ public class GameController : MonoBehaviour {
             HealthBar.transform.localScale = new Vector3(HealthTotal/2, 1, 1);
         if (restart)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetButton("FireRed") || Input.GetButton("FireBlue"))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
@@ -71,8 +77,20 @@ public class GameController : MonoBehaviour {
             restartText.text = "Wave:" + waveCount;
             yield return new WaitForSeconds(waveWait);
             gameOverText.text = "";
-            yield return new WaitForSeconds(.5f);
-            gameOverText.text = "Please choose your Power Up";
+            yield return new WaitForSeconds(.25f);
+            gameOverText.text = "Choose!";
+            UpgradeFire.text = "Press Right for";
+            UpgradeHealth.text = "Press Middle for";
+            UpgradeBounce.text = "Press Left for";
+            UpgradeFire2.text = "   Fire Rate";
+            UpgradeHealth2.text = "     Health";
+            UpgradeBounce2.text = "   Bounce";
+            if (Pause)
+            {
+                Instantiate(HealthUpgrade, new Vector3(0,1,-2), transform.rotation);
+                Instantiate(FireUpgrade, new Vector3(-5, 1, -2), transform.rotation);
+                Instantiate(BounceUpgrade, new Vector3(5, 1, -2), transform.rotation);
+            }
             while (Pause) {
                 yield return new WaitForSeconds(.02f);
                 if (ChoiceRed)
@@ -85,7 +103,15 @@ public class GameController : MonoBehaviour {
             
             }
             gameOverText.text = "";
-
+            UpgradeFire.text = "";
+            UpgradeHealth.text = "";
+            UpgradeBounce.text = "";
+            UpgradeFire2.text = "";
+            UpgradeHealth2.text = "";
+            UpgradeBounce2.text = "";
+            Destroy(GameObject.FindWithTag("Upgrade"));
+            Destroy(GameObject.FindWithTag("Upgrade2")); 
+            Destroy(GameObject.FindWithTag("Upgrade3"));
             
             for (int i = 0; i < enemyTotal; i++)
             {
