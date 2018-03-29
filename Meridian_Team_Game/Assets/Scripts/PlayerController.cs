@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
         {
             shot.transform.localScale = new Vector3(.255f, .255f, .255f);
         }
-        if (Input.GetButton("Jump") && Time.time > nextFire)
+        if (Input.GetButton("FireRed") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate2;
             Instantiate(shot, ShotsSpawn.position, ShotsSpawn.rotation);
@@ -78,17 +78,17 @@ public class PlayerController : MonoBehaviour
 
         }
         if (CanUpgradeRed) {
-            if (Input.GetKey(KeyCode.C)) {
+            if (Input.GetButton("UpgradeRed1")) {
                 fireRate2 = fireRate2 - .05f;
                 CanUpgradeRed = false;
                 gameControllerRed.PlayerRedChoice();
             }
-            if (Input.GetKey(KeyCode.V)) {
+            if (Input.GetButton("UpgradeRed2")) {
                 gameControllerRed.GainHealth();
                 CanUpgradeRed = false;
                 gameControllerRed.PlayerRedChoice();
             }
-            if (Input.GetKey(KeyCode.B))
+            if (Input.GetButton("UpgradeRed3"))
             {
                 BounceRed++;
                 CanUpgradeRed = false;
@@ -102,10 +102,10 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         float moveHorizontal = 0;
-        if(Input.GetKey(KeyCode.A)){
+        if(Input.GetButton("MoveLeftRed")){
         moveHorizontal = -1;
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetButton("MoveRightRed"))
         {
             moveHorizontal = 1;
 
@@ -114,13 +114,13 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);
         rb.velocity = movement * speed;
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetButton("RotateLeftRed"))
         {
             transform.Rotate(Vector3.down * 85 * Time.deltaTime);
             rotation = Quaternion.Euler(transform.rotation.x, spin, transform.rotation.z);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetButton("RotateRightRed"))
         {
             transform.Rotate(Vector3.up * 85 * Time.deltaTime);
             rotation = Quaternion.Euler(transform.rotation.x, spin, transform.rotation.z);

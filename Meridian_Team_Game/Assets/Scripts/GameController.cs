@@ -44,7 +44,7 @@ public class GameController : MonoBehaviour {
             waveUp = waveCount;
             enemyTotal = enemyTotal + enemyIncrease;
             
-            spawnWait = (spawnWait / 1.5f);
+            spawnWait = (spawnWait / 1.1f);
             
             
         }
@@ -71,7 +71,8 @@ public class GameController : MonoBehaviour {
             restartText.text = "Wave:" + waveCount;
             yield return new WaitForSeconds(waveWait);
             gameOverText.text = "";
-            
+            yield return new WaitForSeconds(.5f);
+            gameOverText.text = "Please choose your Power Up";
             while (Pause) {
                 yield return new WaitForSeconds(.02f);
                 if (ChoiceRed)
@@ -83,6 +84,7 @@ public class GameController : MonoBehaviour {
                 }
             
             }
+            gameOverText.text = "";
 
             
             for (int i = 0; i < enemyTotal; i++)
