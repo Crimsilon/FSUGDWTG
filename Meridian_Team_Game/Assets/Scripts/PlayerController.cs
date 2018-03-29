@@ -10,14 +10,14 @@ public class Boundry
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed, fireRate, powerUpTimer;
+    public float speed, fireRate, powerUpTimer,rotateSpeed;
     public Boundry boundry;
     public GameObject shot;
     public Transform ShotsSpawn;
     public bool TriShot, GiantShot;
     public int BounceRed;
 
-    private float nextFire, fireRate2, powerUpDespawn, powerUpDespawn2,spin;
+    private float nextFire, fireRate2, powerUpDespawn, powerUpDespawn2,rotateAngle;
     private Rigidbody rb;
     private AudioSource audiosource;
     private Vector3 ShotsSpawn2, ShotsSpawn3;
@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        rotateAngle = 180;
         CanUpgradeRed = false;
         rb = GetComponent<Rigidbody>();
         fireRate2 = fireRate;
@@ -116,15 +117,13 @@ public class PlayerController : MonoBehaviour
         rb.velocity = movement * speed;
         if (Input.GetButton("RotateLeftRed"))
         {
-            transform.Rotate(Vector3.down * 85 * Time.deltaTime);
-            rotation = Quaternion.Euler(transform.rotation.x, spin, transform.rotation.z);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, Time.deltaTime);
+            if (rotateAngle >= 95) { rotateAngle = rotateAngle - rotateSpeed; }
+            transform.eulerAngles = new Vector3(0, rotateAngle, 0);
         }
         if (Input.GetButton("RotateRightRed"))
         {
-            transform.Rotate(Vector3.up * 85 * Time.deltaTime);
-            rotation = Quaternion.Euler(transform.rotation.x, spin, transform.rotation.z);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, Time.deltaTime);
+            if(rotateAngle<=265){rotateAngle = rotateAngle + rotateSpeed;}
+            transform.eulerAngles = new Vector3(0,rotateAngle,0);
         }
         
 

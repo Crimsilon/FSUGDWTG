@@ -1172,6 +1172,7 @@ MonoBehaviour:
   speed: 3
   fireRate: 1
   powerUpTimer: 5
+  rotateSpeed: 2
   boundry:
     xMin: 3
     xMax: 6.5
@@ -2652,6 +2653,7 @@ MonoBehaviour:
   speed: 3
   fireRate: 1
   powerUpTimer: 5
+  rotateSpeed: 2
   boundry:
     xMin: -6.5
     xMax: -3

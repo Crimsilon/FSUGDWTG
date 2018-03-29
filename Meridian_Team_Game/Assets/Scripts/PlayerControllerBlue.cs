@@ -10,14 +10,14 @@ public class BoundryBlue
 
 public class PlayerControllerBlue : MonoBehaviour
 {
-    public float speed, fireRate, powerUpTimer;
+    public float speed, fireRate, powerUpTimer,rotateSpeed;
     public BoundryBlue boundry;
     public GameObject shot;
     public Transform ShotsSpawn;
     public bool TriShot, GiantShot;
     public int Bounce;
 
-    private float nextFire, fireRate2, powerUpDespawn, powerUpDespawn2, spin;
+    private float nextFire, fireRate2, powerUpDespawn, powerUpDespawn2, rotateAngle;
     private Rigidbody rb;
     private AudioSource audiosource;
     private Vector3 ShotsSpawn2, ShotsSpawn3;
@@ -31,6 +31,7 @@ public class PlayerControllerBlue : MonoBehaviour
 
     void Start()
     {
+        rotateAngle = 180;
         rb = GetComponent<Rigidbody>();
         fireRate2 = fireRate;
         Bounce = 5;
@@ -117,19 +118,15 @@ public class PlayerControllerBlue : MonoBehaviour
         else { moveHorizontal = 0; }
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);
         rb.velocity = movement * speed;
-        if (Input.GetButton("RotateLeftBlue"))
-        {
-            transform.Rotate(Vector3.down * 85 * Time.deltaTime);
-            rotation = Quaternion.Euler(transform.rotation.x, spin, transform.rotation.z);
-
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, Time.deltaTime);
-        }
         if (Input.GetButton("RotateRightBlue"))
         {
-            transform.Rotate(Vector3.up * 85 * Time.deltaTime);
-            rotation = Quaternion.Euler(transform.rotation.x, spin, transform.rotation.z);
-
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, Time.deltaTime);
+            if (rotateAngle <= 265) { rotateAngle = rotateAngle +rotateSpeed; }
+            transform.eulerAngles = new Vector3(0, rotateAngle, 0);
+        }
+        if (Input.GetButton("RotateLeftBlue"))
+        {
+            if (rotateAngle >= 95) { rotateAngle = rotateAngle - rotateSpeed; }
+            transform.eulerAngles = new Vector3(0, rotateAngle, 0);
         }
 
         rb.position = new Vector3(Mathf.Clamp(rb.position.x, boundry.xMin, boundry.xMax), 0.0f, Mathf.Clamp(rb.position.z, boundry.zMin, boundry.zMax));
