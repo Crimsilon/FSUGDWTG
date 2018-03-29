@@ -1,0 +1,4 @@
+Meridian
+Meridian is a co-op turret defense game in witch you and your partner defend against wave after wave of enemies. 
+Each player can only damage enemies of their color so you'll need to rely on your partner to take care of what 
+enemies you cant. After each wave players can chose between diffrent upgrades to make their turret more powerful!

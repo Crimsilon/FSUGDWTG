@@ -46,6 +46,10 @@ public class GameController : MonoBehaviour {
 	
 	
 	void Update () {
+        if (Input.GetButton("Quit"))
+        {
+            Application.Quit();
+        }
         if(waveCount>=waveUp+whenIncrease){
             waveUp = waveCount;
             enemyTotal = enemyTotal + enemyIncrease;
