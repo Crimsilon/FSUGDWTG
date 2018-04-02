@@ -31,7 +31,7 @@ public class EnemyControllerRed : MonoBehaviour {
 
         if (other.tag == "ShotRed")
         {
-            //Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(explosion, transform.position, Quaternion.Euler(0,90,0));
               
             
            

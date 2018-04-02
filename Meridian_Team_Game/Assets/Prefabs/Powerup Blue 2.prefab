@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54412486490875280}
   - component: {fileID: 114350918318306452}
   - component: {fileID: 135852991197780748}
+  - component: {fileID: 114270229579585936}
   m_Layer: 0
   m_Name: Powerup Blue 2
   m_TagString: PowerBlue2
@@ -118,6 +119,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114270229579585936
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1518106070561390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0130d7107ad1d48bc60b5f9cc0ee8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114350918318306452
 MonoBehaviour:
   m_ObjectHideFlags: 1

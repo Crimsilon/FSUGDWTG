@@ -2202,7 +2202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b560ed02e1617f4b8e30081b8ff50f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 0}
+  explosion: {fileID: 1019581894592716, guid: e5cda3d3ec958624ea32fb802620b243, type: 2}
   pickUpRed: {fileID: 1326168569317242, guid: bc91a78722b38894a89ea5ac327d95e4, type: 2}
   pickUpRed2: {fileID: 1111855198946666, guid: 9dfb2f2145685d94fa45194c1eef50a5, type: 2}
   scoreValue: 1

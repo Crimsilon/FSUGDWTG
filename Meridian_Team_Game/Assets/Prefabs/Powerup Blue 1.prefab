@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54675021879511888}
   - component: {fileID: 114191996811220720}
   - component: {fileID: 135177472353653352}
+  - component: {fileID: 114376943151583038}
   m_Layer: 0
   m_Name: Powerup Blue 1
   m_TagString: PowerBlue1
@@ -133,6 +134,17 @@ MonoBehaviour:
     yMin: 0
     yMax: 0
   speed: -1
+--- !u!114 &114376943151583038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1268733548364518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0130d7107ad1d48bc60b5f9cc0ee8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135177472353653352
 SphereCollider:
   m_ObjectHideFlags: 1

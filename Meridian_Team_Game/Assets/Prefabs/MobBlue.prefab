@@ -2217,7 +2217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0591b640408dc4b807a493b5fcb910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionBlue: {fileID: 0}
+  explosionBlue: {fileID: 1754264373273868, guid: 785af63df0afa4d44bdc34299b2c69c1,
+    type: 2}
   pickUpBlue: {fileID: 1268733548364518, guid: bdb8056a8da270a4182307775198ce0d, type: 2}
   pickUpBlue2: {fileID: 1518106070561390, guid: a77b250c11a37c24fb16655426897134,
     type: 2}

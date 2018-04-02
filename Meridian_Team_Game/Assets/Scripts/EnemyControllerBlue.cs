@@ -32,7 +32,7 @@ public class EnemyControllerBlue : MonoBehaviour
 
         if (other.tag == "ShotBlue")
         {
-            //Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(explosionBlue, transform.position, Quaternion.Euler(0,90,0));
 
 
 
