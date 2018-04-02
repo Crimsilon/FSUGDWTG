@@ -118,12 +118,12 @@ public class PlayerControllerBlue : MonoBehaviour
         else { moveHorizontal = 0; }
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);
         rb.velocity = movement * speed;
-        if (Input.GetButton("RotateRightBlue"))
+        if (Input.GetButton("RotateLeftBlue"))
         {
             if (rotateAngle <= 265) { rotateAngle = rotateAngle +rotateSpeed; }
             transform.eulerAngles = new Vector3(0, rotateAngle, 0);
         }
-        if (Input.GetButton("RotateLeftBlue"))
+        if (Input.GetButton("RotateRightBlue"))
         {
             if (rotateAngle >= 95) { rotateAngle = rotateAngle - rotateSpeed; }
             transform.eulerAngles = new Vector3(0, rotateAngle, 0);
